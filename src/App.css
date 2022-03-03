@@ -1,0 +1,10 @@
+.App {
+  /* some spacing around the entire contents of the app */
+  margin: 20px;
+}
+
+.App-puppies {
+  /* use flexbox to create a tiling area with a row of puppy articles inside */
+  display: flex;
+  flex-direction: row;
+}

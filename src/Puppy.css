@@ -1,0 +1,22 @@
+.Puppy {
+  flex: 1; /* each puppy consumes the same width in the row */
+  text-align: center;
+  margin: 10px; /* spacing around each puppy article */
+  cursor: pointer; /* change the cursor to make it look like a link */
+}
+
+.Puppy:hover {
+  /* change the background color when a user hovers */
+  background-color: #505050;
+  color: white;
+}
+
+.Puppy-img {
+  /* styles for the image inside each Puppy article */
+  max-width: 100%; /* restrict the image width to fit inside the article */
+}
+
+.Puppy-details {
+  /* styles for the div surrounding the text inside each Puppy article */
+  text-align: center;
+}
