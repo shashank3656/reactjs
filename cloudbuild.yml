@@ -1,0 +1,18 @@
+steps:
+
+# Step 0: FRONTEND npm install
+- name: "gcr.io/cloud-builders/npm"
+  dir: 'reactjs'
+  args: ['install']
+  timeout: "5m"
+
+# Step 1: FRONTEND optimized build
+- name: "gcr.io/cloud-builders/npm"
+  dir: 'reactjs'
+  args: ["run", "build"]
+  timeout: "5m"
+  
+# Step 2: Copy from cloud build to cloud storage bucket
+- name: 'gcr.io/cloud-builders/gsutil'
+  dir: 'build'
+  args: ["cp", "gs://deploy123/"]
