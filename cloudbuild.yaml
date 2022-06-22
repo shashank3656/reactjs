@@ -14,7 +14,7 @@ steps:
   
 # Step 2: List all the files
 - name: "gcr.io/cloud-builders/npm"
-  dir: 'reactjs'
+  dir: 'build'
   args: ["ls"]
   
 # Step 3: Copy from cloud build to cloud storage bucket
