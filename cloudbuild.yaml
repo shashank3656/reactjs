@@ -15,8 +15,7 @@ steps:
 # Step 2: Copy from cloud build to cloud storage bucket
 - name: 'gcr.io/cloud-builders/gsutil'
   dir: 'build'
-  args: ["cp", "gs://deploy123/"
-  
+  args: ["cp", "gs://deploy123/"]
   
 options:
  logging: CLOUD_LOGGING_ONLY
