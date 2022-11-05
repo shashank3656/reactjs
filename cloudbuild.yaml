@@ -1,21 +1,11 @@
 steps:
-
-# Step 0: FRONTEND npm install
-- name: "gcr.io/cloud-builders/npm"
-  dir: 'reactjs'
-  args: ['install']
-  timeout: "5m"
-
-# Step 1: FRONTEND optimized build
-- name: "gcr.io/cloud-builders/npm"
-  dir: 'reactjs'
-  args: ["run", "build"]
-  timeout: "5m"
-  
-# Step 2: Copy from cloud build to cloud storage bucket
-- name: 'gcr.io/cloud-builders/gsutil'
-  dir: 'build'
-  args: ["ls"]
-  
+- name: "gcr.io/cloud-builders/kubectl"
+  args: ['get', 'nodes']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=us-west1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
 options:
- logging: CLOUD_LOGGING_ONLY
+  logging: CLOUD_LOGGING_ONLY
+  workerPool:
+    'projects/$GOOGLE_CLOUD_PROJECT/locations/us-west1/workerPools/cicd-worker-pool'
+
