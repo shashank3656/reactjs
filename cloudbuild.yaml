@@ -7,5 +7,5 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
   workerPool:
-    'projects/$GOOGLE_CLOUD_PROJECT/locations/us-west1/workerPools/cicd-worker-pool'
+    'projects/clgcporg2-119/locations/us-west1/workerPools/cicd-worker-pool'
 
