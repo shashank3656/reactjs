@@ -1,9 +1,17 @@
 steps:
-- name: "gcr.io/cloud-builders/kubectl"
-  args: ['get', 'nodes']
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=us-west1-b'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
+#- name: "gcr.io/cloud-builders/kubectl"
+#  args: ['get', 'nodes']
+#  env:
+#  - 'CLOUDSDK_COMPUTE_REGION=us-west1-b'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
+
+- name: "gcr.io/cloud-builders/docker"
+  args: ['build', '-t', 'us-west1-docker.pkg.dev/${PROJECT_ID}/master-build/build:$BUILD_ID', '.']
+  
+- name: "gcr.io/cloud-builders/docker"
+  args: ['push', 'us-west1-docker.pkg.dev/${PROJECT_ID}/master-build/build:$BUILD_ID']
+ 
+ 
 options:
   logging: CLOUD_LOGGING_ONLY
   workerPool:
