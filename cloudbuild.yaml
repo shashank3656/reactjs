@@ -9,6 +9,13 @@ steps:
   args: ['build', '-t', 'shashank3656/build:$BUILD_ID', '.']
   
 - name: "gcr.io/cloud-builders/docker"
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - >
+    docker login --username shashank3656 --password gowthamn1
+  
+- name: "gcr.io/cloud-builders/docker"
   args: ['push', 'shashank3656/build:$BUILD_ID']
  
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
