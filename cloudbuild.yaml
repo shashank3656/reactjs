@@ -37,7 +37,8 @@ steps:
       "--delivery-pipeline", "node-app",
       "--region", "us-west1",
       "--annotations", "commitId=${REVISION_ID}",
-      "--images", "shashank3656-clouddeploy-image=shashank3656/build:$BUILD_ID"
+      "--images", "shashank3656-clouddeploy-image=shashank3656/build:$BUILD_ID",
+      "--to-target", "staging"
     ]
 
 options:
