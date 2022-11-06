@@ -6,10 +6,10 @@ steps:
 #  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
 
 - name: "gcr.io/cloud-builders/docker"
-  args: ['build', '-t', 'us-west1-docker.pkg.dev/clgcporg2-136/build:$BUILD_ID', '.']
+  args: ['build', '-t', 'shashank3656/build:$BUILD_ID', '.']
   
 - name: "gcr.io/cloud-builders/docker"
-  args: ['push', 'us-west1-docker.pkg.dev/clgcporg2-136/build:$BUILD_ID']
+  args: ['push', 'shashank3656/build:$BUILD_ID']
  
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
@@ -20,7 +20,7 @@ steps:
     --delivery-pipeline=node-app
     --region=us-west1
     --source=./
-    --images=hello-world-app=us-west1-docker.pkg.dev/clgcporg2-136/build:$BUILD_ID
+    --images=shashank3656/build:$BUILD_ID
 
 options:
   logging: CLOUD_LOGGING_ONLY
