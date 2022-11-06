@@ -4,8 +4,8 @@ metadata:
   name: node-service
 spec:
   ports:
-  - port: 80
-    targetPort: 3000
+  - port: 3000
+    targetPort: 30000
   type: LoadBalancer
   selector:
     app: node-app

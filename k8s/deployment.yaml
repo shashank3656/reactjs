@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: shashank3656/build:latest
+        image: shashank3656/build:362ffb04-7e81-4d68-a549-4451378d41fd
         ports:
           - containerPort: 3000
