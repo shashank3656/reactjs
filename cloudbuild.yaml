@@ -11,7 +11,17 @@ steps:
 - name: "gcr.io/cloud-builders/docker"
   args: ['push', 'us-west1-docker.pkg.dev/clgcporg2-136/build:$BUILD_ID']
  
- 
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - > 
+    gcloud deploy releases create release-$BUILD_ID
+    --delivery-pipeline=node-app
+    --region=us-west1
+    --source=./
+    --images=hello-world-app=us-west1-docker.pkg.dev/clgcporg2-136/build:$BUILD_ID
+
 options:
   logging: CLOUD_LOGGING_ONLY
   workerPool:
