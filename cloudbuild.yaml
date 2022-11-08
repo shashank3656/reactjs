@@ -44,5 +44,5 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
   workerPool:
-    'projects/clgcporg2-136/locations/us-west1/workerPools/cicd-worker-pool'
+    'projects/clgcporg2-073/locations/us-west1/workerPools/cicd-worker-pool'
 
