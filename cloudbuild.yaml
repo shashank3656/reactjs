@@ -18,28 +18,28 @@ steps:
 - name: "gcr.io/cloud-builders/docker"
   args: ['push', 'shashank3656/build:$BUILD_ID']
  
-#- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-#  entrypoint: 'bash'
-#  args:
-#  - '-c'
-#  - > 
-#    gcloud deploy releases create release-$BUILD_ID
-#    --delivery-pipeline=node-app
-#    --region=us-west1
-#    --source=./
-#    --images=shashank3656/build:$BUILD_ID
-
-- name: gcr.io/google.com/cloudsdktool/cloud-sdk
-  entrypoint: gcloud
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
   args:
-    [
-      "deploy", "releases", "create", "release-$BUILD_ID",
-      "--delivery-pipeline", "node-app",
-      "--region", "us-west1",
-      "--annotations", "commitId=${REVISION_ID}",
-      "--images", "shashank3656-clouddeploy-image=shashank3656/build:$BUILD_ID",
-      "--to-target", "staging"
-    ]
+  - '-c'
+  - > 
+    gcloud deploy releases create release-$BUILD_ID
+    --delivery-pipeline=node-app
+    --region=us-west1
+    --from-k8s-manifest=k8s/*.yaml 
+    --images=shashank3656/build:$BUILD_ID
+
+#- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+#  entrypoint: gcloud
+#  args:
+#    [
+#      "deploy", "releases", "create", "release-$BUILD_ID",
+#      "--delivery-pipeline", "node-app",
+#      "--region", "us-west1",
+#      "--annotations", "commitId=${REVISION_ID}",
+#      "--images", "shashank3656-clouddeploy-image=shashank3656/build:$BUILD_ID",
+#      "--to-target", "staging"
+3    ]
 
 options:
   logging: CLOUD_LOGGING_ONLY
