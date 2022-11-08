@@ -24,7 +24,7 @@ steps:
   - '-c'
   - > 
     gcloud deploy releases create release-$BUILD_ID
-    --delivery-pipeline=node-app
+    --delivery-pipeline=node-app1
     --region=us-west1
     --from-k8s-manifest=k8s/*.yaml 
     --images=shashank3656/build:$BUILD_ID
