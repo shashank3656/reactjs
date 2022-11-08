@@ -14,7 +14,7 @@ metadata:
   name: staging
 description: Staging Environment
 gke:
-  cluster: projects/clgcporg2-136/locations/us-west1/clusters/staging
+  cluster: projects/clgcporg2-073/locations/us-west1/clusters/staging
 
 ##cmd
-##gcloud deploy apply --file=clouddeploy.yaml --region us-west1  --project=clgcporg2-136
+##gcloud deploy apply --file=clouddeploy.yaml --region us-west1  --project=clgcporg2-073
