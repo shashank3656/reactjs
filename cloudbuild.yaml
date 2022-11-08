@@ -39,7 +39,7 @@ steps:
 #      "--annotations", "commitId=${REVISION_ID}",
 #      "--images", "shashank3656-clouddeploy-image=shashank3656/build:$BUILD_ID",
 #      "--to-target", "staging"
-3    ]
+#    ]
 
 options:
   logging: CLOUD_LOGGING_ONLY
