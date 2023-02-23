@@ -38,7 +38,7 @@
 
 
 ###MY_CODE
-FROM node:14.17.5
+FROM node:19.7.0
 USER root
 RUN mkdir -p /usr/app
 WORKDIR /usr/app
