@@ -24,7 +24,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir("k8s")
-                sh 'sh 'sed -i "s/shashank3656\\\\/build:.*/shashank3656\\\\/build:$BUILD_ID/g" >> deployment.yaml'
+                sh 'sh 'sed -i "s/shashank3656\\\\/build:.*/shashank3656\\\\/build:$BUILD_ID/g" deployment.yaml'
                 sh 'cat deployment.yaml'
                 sh 'git add .'
                 sh 'git commit -m "updated the latest $BUILD_ID"'
