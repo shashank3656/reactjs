@@ -17,19 +17,14 @@ pipeline {
 
         stage ('Push') {
             steps {
-                sh 'docker push shahsank3656/buil:$BUILD_ID'
+                sh 'docker push shahsank3656/build:$BUILD_ID'
             }
         }
 
         stage ('Deploy') {
             steps {
                 dir("k8s")
-                sh "sed '/image/s/:.*/:$BUILD_ID/g' >> deployment.yaml"
-                ///sh 'sh 'sed -i "s/shashank3656\\\\/build:.*/shashank3656\\\\/build:$BUILD_ID/g" deployment.yaml'
-                sh 'cat deployment.yaml'
-                sh 'git add .'
-                sh 'git commit -m "updated the latest $BUILD_ID"'
-                sh 'git push https://shashank3656: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@github.com/shashank3656/reactjs.git master'
+                sh "sed '/image/s/:.*/:$BUILD_ID/g' >> deployment.yaml
             }
         }
     }
