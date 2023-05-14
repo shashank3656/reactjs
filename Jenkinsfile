@@ -28,6 +28,17 @@ pipeline {
                    sh 'ls'
                    sh 'sed -i "s/shashank3656\\/build:.*/shashank3656\\/build:$BUILD_ID/g" deployment.yaml' 
                    sh 'cat deployment.yaml'
+                }
+            }
+        }
+        
+        stage ('Commit & Push') {
+            steps {
+                dir("reacts") {
+                   sh "git config --global user.email 'shashankgowtahm12@gmail.com'"
+                   sh "git config --global user.name 'shashank3656'"
+                   sh 'git remote set-url origin  https://$GIT_TOKEN@github.com/shashank3656/reactjs.git' 
+                   sh 'git checkout master'
                    sh 'git add -A'
                    sh 'git commit -m "updated the build id $BUILD_ID in the deployment file'
                    sh 'git push -u origin master' 
@@ -35,4 +46,4 @@ pipeline {
             }
         }
     }
-}
+}    
