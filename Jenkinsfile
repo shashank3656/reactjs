@@ -25,6 +25,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir("k8s")
+                sh 'ls'
                 sh "sed '/image/s/:.*/:$BUILD_ID/g' >> deployment.yaml"
                 sh 'cat deployment.yaml'
             }
