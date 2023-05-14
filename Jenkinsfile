@@ -39,7 +39,7 @@ pipeline {
                    sh "git config --global user.name 'shashank3656'"
                    sh 'git remote set-url origin  https://$GIT_TOKEN@github.com/shashank3656/reactjs.git' 
                    sh 'git checkout master'
-                   sh 'git add .'
+                   sh "git add '.'"
                    sh 'git commit -m "updated the build id $BUILD_ID in the deployment file'
                    sh 'git push -u origin master' 
                 }
