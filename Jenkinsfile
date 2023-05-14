@@ -17,7 +17,7 @@ pipeline {
 
         stage ('Push') {
             steps {
-                sh 'docker push shahsank3656/build:$BUILD_ID'
+                sh 'docker push shashank3656/build:$BUILD_ID'
             }
         }
 
