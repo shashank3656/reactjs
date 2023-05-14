@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                sh 'rm -rf reactjs'
                 sh 'git clone https://github.com/shashank3656/reactjs.git'
                 sh 'git checkout master'
             }
