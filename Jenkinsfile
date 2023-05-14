@@ -26,7 +26,7 @@ pipeline {
             steps {
                 dir("reactjs/k8s") {
                    sh 'ls'
-                   sh "sed '/image/s/:.*/:$BUILD_ID/g' >> deployment.yaml"
+                   sh "sed -i 's/shashank3656\/build:.*/shashank3656\/build:$BUILD_ID/g'  >> deployment.yaml"
                    sh 'cat deployment.yaml'
                 }
             }
