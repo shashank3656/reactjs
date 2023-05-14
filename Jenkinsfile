@@ -28,7 +28,7 @@ pipeline {
                    sh 'ls'
                    sh 'sed -i "s/shashank3656\\/build:.*/shashank3656\\/build:$BUILD_ID/g" deployment.yaml' 
                    sh 'cat deployment.yaml'
-                   sh 'git add .'
+                   sh 'git add -A'
                    sh 'git commit -m "updated the build id $BUILD_ID in the deployment file'
                    sh 'git push -u origin master' 
                 }
