@@ -24,10 +24,11 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                dir("reactjs/k8s")
-                sh 'ls'
-                sh "sed '/image/s/:.*/:$BUILD_ID/g' >> deployment.yaml"
-                sh 'cat deployment.yaml'
+                dir("reactjs/k8s") {
+                   sh 'ls'
+                   sh "sed '/image/s/:.*/:$BUILD_ID/g' >> deployment.yaml"
+                   sh 'cat deployment.yaml'
+                }
             }
         }
     }
