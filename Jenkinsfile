@@ -42,10 +42,9 @@ pipeline {
 
         stage('Checkout K8S manifest SCM') {
             steps {
-                withCredentials([usernameColonPassword(credentialsId: 'Github', variable: 'Github')]) {
-                    url: 'https://github.com/shashank3656/reactjs.git',
-                    branch: 'master'
-                }
+                git credentialsId: 'Github',
+                url: 'https://github.com/shashank3656/reactjs.git',
+                branch: 'master'
             }
         }
 
