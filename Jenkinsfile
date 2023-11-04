@@ -49,6 +49,8 @@ pipeline {
                         cat deployment.yaml
                         sed -i "s#shashank3656.*#${IMAGE_REPO}/build:${VERSION}#g" deployment.yaml
                         cat deployment.yaml
+                        git config --global user.email "shashankgowtham12@gmail.com"
+                        git config --global user.name "shashank3656"
                         git add deployment.yaml
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                         git remote - v
