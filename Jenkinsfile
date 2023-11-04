@@ -18,17 +18,6 @@ pipeline {
             }
         }
 
-        stage('SonarQube analysis') {
-            steps {
-                script {
-                    scannerHome = tool 'sonarqube'
-                }
-                sh 'sonar-scanner -Dsonar.properties=sonar.properties'
-                //withSonarQubeEnv(sonar) {
-                //    sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
-                //}
-            }
-        }
 
         stage ('Docker_Build') {
             steps {
