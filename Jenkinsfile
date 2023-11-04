@@ -50,7 +50,7 @@ pipeline {
                         sed -i "s#shashank3656.*#${IMAGE_REPO}/build:${VERSION}#g" deployment.yaml
                         cat deployment.yaml
                         git add deployment.yaml
-                        git commit - m 'Updated the deploy yaml | Jenkins Pipeline'
+                        git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                         git remote - v
                         git push https://github.com/shashank3656/reactjs.git HEAD:master
                         ''' 
