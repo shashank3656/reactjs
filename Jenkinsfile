@@ -15,6 +15,7 @@ pipeline {
                 sh 'rm -rf reactjs'
                 sh 'git clone https://github.com/shashank3656/reactjs.git'
                 sh 'git checkout master'
+                sh 'git pull'
             }
         }
 
