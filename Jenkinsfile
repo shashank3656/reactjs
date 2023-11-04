@@ -23,7 +23,7 @@ pipeline {
                 script {
                     scannerHome = tool 'sonarqube'
                 }
-                withSonarQubeEnv('token') {
+                withSonarQubeEnv('sonar') {
                     sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
                 }
             }
