@@ -15,16 +15,15 @@ pipeline {
                 sh 'rm -rf reactjs'
                 sh 'git clone https://github.com/shashank3656/reactjs.git'
                 sh 'git checkout master'
-                sh 'git pull'
             }
         }
 
         stage('SonarQube analysis') {
             steps {
                 script {
-                    scannerHome = tool 'SonarQube Scanner 5.0.1.3006'
+                    scannerHome = tool 'Sonarqube Scanner'
                 }
-                withCredentials([string(credentialsId: 'Sonarqube', variable: 'sonarqube')]) {
+                withSonarQubeEnv(Sonarqube Scanner) {
                     sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
                 }
             }
