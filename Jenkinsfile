@@ -19,11 +19,11 @@ pipeline {
         }
 
         stage('SonarQube analysis') {
-            steps [
+            steps {
                 withCredentials([string(credentialsId: 'Sonarqube', variable: 'sonarqube')]) {
                     sh "${tool('sonarscan')}/bin/sonar-scanner -Dsonar.properties=sonar.properties"
                 }
-            ]
+            }
         }
 
         stage ('Docker_Build') {
