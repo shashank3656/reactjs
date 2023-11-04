@@ -44,7 +44,7 @@ pipeline {
         stage('Update K8S manifest & push to Repo') {
             steps {
                 dir("reactjs/k8s") {
-                    withCredentials([usernameColonPassword(credentialsId: 'Github', variable: 'Github')]) {
+                    withCredentials([gitUsernamePassword(credentialsId: 'Github', gitToolName: 'Default')]) {
                         sh '''
                         cat deployment.yaml
                         sed -i "s#shashank3656.*#${IMAGE_REPO}/build:${VERSION}#g" deployment.yaml
