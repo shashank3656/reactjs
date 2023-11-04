@@ -18,6 +18,16 @@ pipeline {
             }
         }
 
+        stage('SonarQube analysis') {
+            steps {
+                script {
+                    scannerHome = tool 'sonarqube'
+                }
+                withSonarQubeEnv(credentialsId: 'token') {
+                    sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
+                }
+            }
+        }
 
         stage ('Docker_Build') {
             steps {
