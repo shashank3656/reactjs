@@ -20,8 +20,11 @@ pipeline {
 
         stage('SonarQube analysis') {
             steps {
+                script {
+                    scannerHome = tool 'Sonarqube Scanner'
+                }
                 withCredentials([string(credentialsId: 'Sonarqube', variable: 'sonarqube')]) {
-                    sh "${tool('sonarscan')}/bin/sonar-scanner -Dsonar.properties=sonar.properties"
+                    sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
                 }
             }
         }
