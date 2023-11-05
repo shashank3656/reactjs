@@ -18,14 +18,9 @@ pipeline {
             }
         }
 
-       stage('SonarQube analysis') {
+        stage('SonarQube analysis') {
             steps {
-                script {
-                    scannerHome = tool 'SonarQube'
-                }
-                withSonarQubeEnv('sonar') {
-                    sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
-                }
+                sh '/var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner -Dsonar.properties=sonar.properties'
             }
         }
 
