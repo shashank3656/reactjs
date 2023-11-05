@@ -18,12 +18,12 @@ pipeline {
             }
         }
 
-        stage('SonarQube analysis') {
+       stage('SonarQube analysis') {
             steps {
                 script {
-                    scannerHome = tool 'sonarqube'
+                    scannerHome = tool 'SonarQube'
                 }
-                withSonarQubeEnv('sonar') {
+                withSonarQubeEnv(credentialsId: 'sonar') {
                     sh '${scannerHome}/bin/sonar-scanner -Dsonar.properties=sonar.properties'
                 }
             }
